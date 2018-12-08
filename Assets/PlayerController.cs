@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
     Rigidbody2D rb2d;
+    public float jumpForce;
     public float speed;
     // Use this for initialization
     void Start () {
@@ -17,5 +18,7 @@ public class PlayerController : MonoBehaviour {
 
         Vector2 movement = new Vector2(moveHorizontal, moveVertical);
         rb2d.AddForce(movement * speed);
+        if (Input.GetKeyDown(KeyCode.Space))
+            rb2d.AddForce(new Vector2(0, jumpForce));
     }
 }
